@@ -18,7 +18,8 @@
       "controller-config": {
         "kind": "rest",
         "credentials": {
-          "requestTimeout": 10000
+          "requestTimeout": 10000,
+          "url": "http://localhost:3000/v2"
         },
         "pool": {
           "min": 1,
@@ -26,5 +27,8 @@
         }
       }
     }
+  },
+  "devDependencies": {
+    "sqlite3": "^4.1.1"
   }
 }
