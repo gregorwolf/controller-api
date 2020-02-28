@@ -1,0 +1,25 @@
+{
+  "namespace": "de.linuxdozent",
+  "definitions": {
+    "de.linuxdozent.ControllerService": {
+      "kind": "service",
+      "@source": "srv/controller-service.cds"
+    },
+    "de.linuxdozent.ControllerService.XSAUsers": {
+      "kind": "entity",
+      "@cds.persistence.name": "DE_LINUXDOZENT_CONTROLLERSERVICE_XSAUSERS",
+      "elements": {
+        "username": {
+          "@cds.persistence.name": "USERNAME",
+          "key": true,
+          "type": "cds.String"
+        }
+      }
+    }
+  },
+  "meta": {
+    "creator": "CDS Compiler v1.21.1"
+  },
+  "$version": "1.0",
+  "@sql_mapping": "plain"
+}

@@ -1,0 +1,30 @@
+{
+  "name": "controller-api",
+  "version": "1.0.0",
+  "description": "Access XS Controller API from CAP",
+  "repository": "https://github.com/gregorwolf/controller-api",
+  "license": "MIT",
+  "dependencies": {
+    "@sap/cds": "^3",
+    "express": "^4"
+  },
+  "scripts": {
+    "setup": "npm install && npm run build",
+    "build": "cds build/all --clean",
+    "start": "npx cds run"
+  },
+  "cds": {
+    "requires": {
+      "controller-config": {
+        "kind": "rest",
+        "credentials": {
+          "requestTimeout": 10000
+        },
+        "pool": {
+          "min": 1,
+          "max": 10
+        }
+      }
+    }
+  }
+}

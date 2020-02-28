@@ -1,0 +1,44 @@
+####### Generated mta.yaml based on template version 0.2.0
+####### appName = controller-api
+####### language=nodejs; multiTenant=false
+####### approuter=
+
+_schema-version: '3.1'
+ID: controller-api
+version: 1.0.0
+description: "A simple CAP project."
+
+build-parameters:
+  before-all:
+   - builder: custom
+     commands:
+      - npm install
+      - cds build/all
+
+parameters:
+  enable-parallel-deployments: true  
+
+modules:
+ ##############    SERVER MODULE   ##########################
+ - name: controller-api-srv
+   type: nodejs
+   path: gen/srv
+   properties:
+     EXIT: 1  # required by deploy.js task to terminate 
+
+   
+   
+ ############################################################
+
+ ##############    SIDECAR MODULE   #########################
+ - name: db
+    
+   type: hdb
+   path: gen/db  
+   parameters:
+     app-name: controller-api-db  
+   requires:
+    #### Hana and xsuaa resources extracted from CAP configuration ####
+ ############################################################
+
+
