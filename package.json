@@ -5,12 +5,17 @@
   "repository": "https://github.com/gregorwolf/controller-api",
   "license": "MIT",
   "dependencies": {
-    "@sap/cds": "^3",
-    "express": "^4"
+    "@sap/cds": "3.21.3",
+    "@sap/xsenv": "^2.2.0",
+    "@sap/xssec": "^2.2.5",
+    "express": "^4.17.1",
+    "libnpx": "^10.2.2"
   },
   "scripts": {
     "setup": "npm install && npm run build",
     "build": "cds build/all --clean",
+    "build:mta": "mbt build -p=xsa",
+    "deploy:xsa": "xs deploy mta_archives/controller-api-cap_1.0.0.mtar",
     "start": "npx cds run"
   },
   "cds": {
@@ -24,6 +29,11 @@
         "pool": {
           "min": 1,
           "max": 10
+        }
+      },
+      "auth": {
+        "passport": {
+          "strategy": "JWT"
         }
       }
     }

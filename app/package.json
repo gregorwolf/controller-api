@@ -1,0 +1,13 @@
+{
+  "name": "ui-approuter",
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "dependencies": {
+    "@sap/approuter": "6.8.1"
+  },
+  "scripts": {
+    "start": "node node_modules/@sap/approuter/approuter.js",
+    "start:debugjwt": "node approuter"
+  }
+}

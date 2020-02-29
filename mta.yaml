@@ -1,13 +1,14 @@
 ####### Generated mta.yaml based on template version 0.2.0
-####### appName = controller-api
+####### appName = controller-api-cap
 ####### language=nodejs; multiTenant=false
 ####### approuter=
 
 _schema-version: '3.1'
-ID: controller-api
+ID: controller-api-cap
 version: 1.0.0
-description: "A simple CAP project."
-
+description: "Access XS Controller API from CAP"
+parameters:
+  enable-parallel-deployments: true
 build-parameters:
   before-all:
    - builder: custom
@@ -15,30 +16,47 @@ build-parameters:
       - npm install
       - cds build/all
 
-parameters:
-  enable-parallel-deployments: true  
-
 modules:
+ - name: controller-api-cap-web
+   type: html5
+   path: app
+   build-parameters:
+    ignore: ["node_modules/"]
+   parameters:
+      host: controller-api-cap-ex
+      register-service-url: true
+      service-name: controller-api-cap-ex
+      service-url: '${default-url}'
+   requires:
+    - name: controller-api-ex-uaa
+    - name: cap-backend
+      group: destinations
+      properties:
+        name: cap-backend
+        url: ~{url}
+        forwardAuthToken: true  
  ##############    SERVER MODULE   ##########################
- - name: controller-api-srv
+ - name: controller-api-cap-srv
    type: nodejs
    path: gen/srv
-   properties:
-     EXIT: 1  # required by deploy.js task to terminate 
-
-   
-   
- ############################################################
-
- ##############    SIDECAR MODULE   #########################
- - name: db
-    
-   type: hdb
-   path: gen/db  
-   parameters:
-     app-name: controller-api-db  
+   build-parameters:
+    ignore: ["node_modules/"]
+   provides:
+    - name: cap-backend
+      properties:
+         url: ${default-url}
    requires:
-    #### Hana and xsuaa resources extracted from CAP configuration ####
- ############################################################
-
-
+    - name: controller-api-ex-uaa
+    - name: controller-config
+      group: destinations
+      properties:
+        name: controller-config
+        url: ~{url}
+        forwardAuthToken: true
+ 
+resources:
+ - name: controller-api-ex-uaa
+   type: org.cloudfoundry.existing-service
+ - name: controller-config
+   properties:
+     url: ${controller-url} #"${controller-url}" # - Removed for testing in Web IDE, replace for real deployment
