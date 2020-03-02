@@ -23,8 +23,7 @@
       "controller-config": {
         "kind": "rest",
         "credentials": {
-          "requestTimeout": 10000,
-          "url": "http://localhost:3000/v2"
+          "requestTimeout": 10000
         },
         "pool": {
           "min": 1,
