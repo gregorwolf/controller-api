@@ -3,6 +3,7 @@ _out
 *.db
 connection.properties
 default-*.json
+.env
 gen/
 node_modules/
 package-lock.json
@@ -21,3 +22,4 @@ mta_archives/
 .DS_Store
 *.orig
 *.log
+mta-op*
