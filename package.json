@@ -4,8 +4,11 @@
   "description": "Access XS Controller API from CAP",
   "repository": "https://github.com/gregorwolf/controller-api",
   "license": "MIT",
+  "engines": {
+    "node": ">=10.0.0"
+  },
   "dependencies": {
-    "@sap/cds": "3.21.3",
+    "@sap/cds": "3.31.1",
     "@sap/xsenv": "^2.2.0",
     "@sap/xssec": "^2.2.5",
     "express": "^4.17.1",
@@ -14,7 +17,7 @@
   "scripts": {
     "setup": "npm install && npm run build",
     "build": "cds build/all --clean",
-    "build:mta": "mbt build -p=xsa",
+    "build:xsa": "mbt build -p=xsa",
     "deploy:xsa": "xs deploy mta_archives/controller-api-cap_1.0.0.mtar",
     "start": "npx cds run"
   },
