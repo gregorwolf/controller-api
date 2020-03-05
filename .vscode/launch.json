@@ -7,7 +7,7 @@
     {
       "name": "cds run",
       "env": {
-        "destinations":"[{\"name\": \"controller-config\", \"url\": \"http://localhost:3000/v2\"}]",
+        "destinations":"[{\"name\": \"controller-config\", \"url\": \"http://localhost:3000\"}]",
         "DEBUG":"X",
       },
       "type": "node",
