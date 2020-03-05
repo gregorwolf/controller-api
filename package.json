@@ -26,7 +26,8 @@
       "controller-config": {
         "kind": "rest",
         "credentials": {
-          "requestTimeout": 10000
+          "requestTimeout": 10000,
+          "destination": "controller-config"
         },
         "pool": {
           "min": 1,
