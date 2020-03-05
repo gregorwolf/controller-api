@@ -1,13 +1,13 @@
 const cds = require('@sap/cds')
 
 module.exports = cds.service.impl (srv => {
+  const controllerAPI = cds.connect.to('controller-config')
 
   srv.on('READ', 'XSAUsers', async (req) => {
     let response
     let users = []
     try {
-      const srv = cds.connect.to('controller-config')
-      const tx = srv.transaction(req)
+      const tx = controllerAPI.transaction(req)
       // try to query the users
       response = await tx.get('/v2/users')
       response.users.forEach(function(item){
