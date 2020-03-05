@@ -1,4 +1,5 @@
 ### Read XSA Users
 GET http://localhost:4004/controller/XSAUsers
+Authorization: Basic dXNlcjo=
 ### Read only one XSA Users
 GET http://localhost:4004/controller/XSAUsers?$top=1
