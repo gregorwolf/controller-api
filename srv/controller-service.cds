@@ -1,7 +1,7 @@
 namespace de.linuxdozent;
 
-service ControllerService {
-	entity XSAUsers {
-		key username:      String;
-	};
+service ControllerService @(requires: 'authenticated-user') {
+  entity XSAUsers {
+    key username:      String;
+  };
 }
