@@ -9,11 +9,12 @@
   },
   "dependencies": {
     "@sap/cds": "3.31.1",
+    "@sap/cloud-sdk-core": "^1.17.2",
     "@sap/xsenv": "^2.2.0",
     "@sap/xssec": "^2.2.5",
-    "passport": "^0.4.1",
     "express": "^4.17.1",
-    "libnpx": "^10.2.2"
+    "libnpx": "^10.2.2",
+    "passport": "^0.4.1"
   },
   "scripts": {
     "setup": "npm install && npm run build",

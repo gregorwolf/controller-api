@@ -1,4 +1,5 @@
 const cds = require('@sap/cds')
+const { retrieveJwt } = require('@sap/cloud-sdk-core')
 
 module.exports = cds.service.impl (srv => {
   const controllerAPI = cds.connect.to('controller-config')
@@ -8,6 +9,9 @@ module.exports = cds.service.impl (srv => {
     let users = []
     try {
       const tx = controllerAPI.transaction(req)
+      // Read jwt and find a way to use it with the CAP service call
+      var jwt = retrieveJwt(req._.req)
+      console.log("JWT: " + jwt)
       // try to query the users
       response = await tx.get('/v2/users')
       response.users.forEach(function(item){
