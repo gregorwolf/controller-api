@@ -6,7 +6,7 @@
     "node": ">=8.0.0"
   },
   "dependencies": {
-    "@sap/cds": "^3.31.2",
+    "@sap/cds": "3.21.3",
     "@sap/cloud-sdk-core": "^1.17.2",
     "@sap/xsenv": "^2.2.0",
     "@sap/xssec": "^2.2.5",
@@ -15,6 +15,6 @@
     "passport": "^0.4.1"
   },
   "scripts": {
-    "start": "npx cds run"
+    "start": "node node_modules/@sap/cds/bin/cds.js run"
   }
 }
