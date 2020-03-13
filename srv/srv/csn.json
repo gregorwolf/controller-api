@@ -1,0 +1,23 @@
+{
+  "namespace": "de.linuxdozent",
+  "definitions": {
+    "de.linuxdozent.ControllerService": {
+      "@source": "srv/controller-service.cds",
+      "kind": "service",
+      "@requires": "authenticated-user"
+    },
+    "de.linuxdozent.ControllerService.XSAUsers": {
+      "kind": "entity",
+      "elements": {
+        "username": {
+          "key": true,
+          "type": "cds.String"
+        }
+      }
+    }
+  },
+  "meta": {
+    "creator": "CDS Compiler v1.23.2"
+  },
+  "$version": "1.0"
+}

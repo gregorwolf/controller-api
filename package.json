@@ -19,9 +19,10 @@
   "scripts": {
     "setup": "npm install && npm run build",
     "build": "cds build/all --clean",
+    "build:local": "npm run build && cp gen/srv/srv/csn.json srv/srv/",
     "build:xsa": "mbt build -p=xsa",
     "deploy:xsa": "xs deploy mta_archives/controller-api-cap_1.0.0.mtar",
-    "start": "npx cds run"
+    "start": "npx cds run csn.json"
   },
   "cds": {
     "requires": {
@@ -44,6 +45,7 @@
     }
   },
   "devDependencies": {
+    "rimraf": "^3.0.2",
     "sqlite3": "^4.1.1"
   }
 }
