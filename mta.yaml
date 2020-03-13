@@ -1,67 +1,62 @@
-####### Generated mta.yaml based on template version 0.2.0
-####### appName = controller-api-cap
-####### language=nodejs; multiTenant=false
-####### approuter=
-
-_schema-version: '3.1'
 ID: controller-api-cap
+_schema-version: '3.1'
 version: 1.0.0
 description: "Access XS Controller API from CAP"
 parameters:
   enable-parallel-deployments: true
 build-parameters:
   before-all:
-   - builder: custom
-     commands:
-      - npm install
-      - cds build/all
+    - builder: custom
+      commands:
+        - npm install
+        - cds build/all
 
 modules:
- - name: controller-api-cap-web
-   type: html5
-   path: app
-   build-parameters:
-    ignore: ["node_modules/"]
+  - name: controller-api-cap-web
+    type: html5
+    path: app
+    build-parameters:
+     ignore: ["node_modules/"]
+    parameters:
+       memory: 256M
+       disk-quota: 1024M
+       host: controller-api-cap-ex
+       register-service-url: true
+       service-name: controller-api-cap-ex
+       service-url: '${default-url}'
+    requires:
+      - name: controller-api-ex-uaa
+      - name: cap-backend
+        group: destinations
+        properties:
+          name: cap-backend
+          url: ~{url}
+          forwardAuthToken: true  
+  ##############    SERVER MODULE   ##########################
+  - name: controller-api-cap-srv
+    type: nodejs
+    path: gen/srv
     parameters:
       memory: 256M
       disk-quota: 1024M
-      host: controller-api-cap-ex
-      register-service-url: true
-      service-name: controller-api-cap-ex
-      service-url: '${default-url}'
-   requires:
-    - name: controller-api-ex-uaa
-    - name: cap-backend
-      group: destinations
-      properties:
-        name: cap-backend
-        url: ~{url}
-        forwardAuthToken: true  
- ##############    SERVER MODULE   ##########################
- - name: controller-api-cap-srv
-   type: nodejs
-   path: gen/srv
-   parameters:
-    memory: 256M
-    disk-quota: 1024M
-   build-parameters:
-    ignore: ["node_modules/"]
-   provides:
-    - name: cap-backend
-      properties:
-         url: ${default-url}
-   requires:
-    - name: controller-api-ex-uaa
-    - name: controller-config
-      group: destinations
-      properties:
-        name: controller-config
-        url: ~{url}
-        forwardAuthToken: true
+    build-parameters:
+      ignore: ["node_modules/"]
+    provides:
+      - name: cap-backend
+        properties:
+          url: ${default-url}
+    requires:
+      - name: controller-api-ex-uaa
+      - name: controller-config
+        group: destinations
+        properties:
+          name: controller-config
+          url: ~{url}
+          forwardAuthToken: true
  
 resources:
- - name: controller-api-ex-uaa
-   type: org.cloudfoundry.existing-service
- - name: controller-config
-   properties:
-     url: ${controller-url} #"${controller-url}" # - Removed for testing in Web IDE, replace for real deployment
+  - name: controller-api-ex-uaa
+    type: org.cloudfoundry.existing-service
+  - name: controller-config
+    properties:
+      url: ${controller-url} #"${controller-url}" # - Removed for testing in Web IDE, replace for real deployment 
