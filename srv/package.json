@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "@sap/cds": "3.21.3",
+    "@sap/hana-client": "^2.4.182",
     "@sap/cloud-sdk-core": "^1.17.2",
     "@sap/xsenv": "^2.2.0",
     "@sap/xssec": "^2.2.5",
@@ -16,5 +17,24 @@
   },
   "scripts": {
     "start": "node node_modules/@sap/cds/bin/cds.js run"
+  },
+  "cds": {
+    "requires": {
+      "uaa": {
+        "kind": "xsuaa"
+      },
+      "db": {
+        "kind": "hana",
+        "model": [
+          "db",
+          "srv"
+        ]
+      }
+    },  	
+    "auth": {
+      "passport": {
+        "strategy": "JWT"
+      }
+    }
   }
 }
