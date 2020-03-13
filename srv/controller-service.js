@@ -12,6 +12,8 @@ module.exports = cds.service.impl (srv => {
       var jwt = retrieveJwt(req._.req)
       console.log("JWT: " + jwt)
       req.attr.token = jwt
+      // eslint-disable-next-line no-debugger
+      debugger
       const tx = controllerAPI.transaction(req)
       // try to query the users
       response = await tx.get('/v2/users')
