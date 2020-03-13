@@ -4,12 +4,12 @@ version: 1.0.0
 description: "Access XS Controller API from CAP"
 parameters:
   enable-parallel-deployments: true
-build-parameters:
-  before-all:
-    - builder: custom
-      commands:
-        - npm install
-        - cds build/all
+#build-parameters:
+#  before-all:
+#    - builder: custom
+#      commands:
+#        - npm install
+#        - cds build/all
 
 modules:
   - name: controller-api-cap-web
@@ -35,7 +35,7 @@ modules:
   ##############    SERVER MODULE   ##########################
   - name: controller-api-cap-srv
     type: nodejs
-    path: gen/srv
+    path: srv
     parameters:
       memory: 256M
       disk-quota: 1024M
@@ -59,4 +59,4 @@ resources:
     type: org.cloudfoundry.existing-service
   - name: controller-config
     properties:
-      url: ${controller-url} #"${controller-url}" # - Removed for testing in Web IDE, replace for real deployment 
+      url: "https://paprh-sap67.pap.local:30030" #"${controller-url}" # - Removed for testing in Web IDE, replace for real deployment 
