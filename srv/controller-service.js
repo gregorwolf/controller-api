@@ -8,10 +8,11 @@ module.exports = cds.service.impl (srv => {
     let response
     let users = []
     try {
-      const tx = controllerAPI.transaction(req)
       // Read jwt and find a way to use it with the CAP service call
       var jwt = retrieveJwt(req._.req)
       console.log("JWT: " + jwt)
+      req.attr.token = jwt
+      const tx = controllerAPI.transaction(req)
       // try to query the users
       response = await tx.get('/v2/users')
       response.users.forEach(function(item){
