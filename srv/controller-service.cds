@@ -1,9 +1,6 @@
 namespace de.linuxdozent;
+using de.linuxdozent as my from '../db/controller-schema';
 
 service ControllerService @(requires: 'authenticated-user') {
-  
-  @cds.persistence.skip
-  entity XSAUsers {
-    key username:      String;
-  };
+  entity XSAUsers as projection on my.XSAUsers;
 }

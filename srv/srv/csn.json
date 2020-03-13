@@ -8,7 +8,25 @@
     },
     "de.linuxdozent.ControllerService.XSAUsers": {
       "kind": "entity",
-      "@cds.persistence.skip": true,
+      "query": {
+        "SELECT": {
+          "from": {
+            "ref": [
+              "de.linuxdozent.XSAUsers"
+            ]
+          }
+        }
+      },
+      "elements": {
+        "username": {
+          "key": true,
+          "type": "cds.String"
+        }
+      },
+      "$syntax": "projection"
+    },
+    "de.linuxdozent.XSAUsers": {
+      "kind": "entity",
       "elements": {
         "username": {
           "key": true,
