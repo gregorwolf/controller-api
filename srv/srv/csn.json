@@ -8,6 +8,7 @@
     },
     "de.linuxdozent.ControllerService.XSAUsers": {
       "kind": "entity",
+      "@cds.persistence.skip": true,
       "elements": {
         "username": {
           "key": true,
