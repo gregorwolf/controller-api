@@ -23,8 +23,8 @@ modules:
    build-parameters:
     ignore: ["node_modules/"]
     parameters:
-      memory: 2564M
-      disk-quota: 512M
+      memory: 256M
+      disk-quota: 1024M
       host: controller-api-cap-ex
       register-service-url: true
       service-name: controller-api-cap-ex
@@ -42,8 +42,8 @@ modules:
    type: nodejs
    path: gen/srv
    parameters:
-    memory: 2564M
-    disk-quota: 512M
+    memory: 256M
+    disk-quota: 1024M
    build-parameters:
     ignore: ["node_modules/"]
    provides:
