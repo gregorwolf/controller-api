@@ -9,10 +9,8 @@
   },
   "dependencies": {
     "@sap/cds": "3.21.3",
+    "@sap/cds-odata-v2-adapter-proxy": "^1.4.21",
     "@sap/cloud-sdk-core": "^1.17.2",
-    "@sap/xsenv": "^2.2.0",
-    "@sap/xssec": "^2.2.5",
-    "express": "^4.17.1",
     "libnpx": "^10.2.2",
     "passport": "^0.4.1"
   },
@@ -22,7 +20,7 @@
     "build:local": "npm run build && cp gen/srv/srv/csn.json srv/srv/",
     "build:xsa": "mbt build -p=xsa",
     "deploy:xsa": "xs deploy mta_archives/controller-api-cap_1.0.0.mtar",
-    "start": "npx cds run csn.json"
+    "start": "node server"
   },
   "cds": {
     "requires": {
@@ -35,11 +33,6 @@
         "pool": {
           "min": 1,
           "max": 10
-        }
-      },
-      "auth": {
-        "passport": {
-          "strategy": "JWT"
         }
       }
     }
