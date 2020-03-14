@@ -67,7 +67,7 @@ resources:
     type: org.cloudfoundry.existing-service
   - name: controller-config
     properties:
-      url: "https://paprh-sap67.pap.local:30030" #"${controller-url}" # - Removed for testing in Web IDE, replace for real deployment 
+      url: "https://hxehost:39030/" #"${controller-url}" # - Removed for testing in Web IDE, replace for real deployment 
   - name: hdi_db
     properties:
        hdi-container-name: ${service-name}
