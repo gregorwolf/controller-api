@@ -7,8 +7,9 @@
   },
   "dependencies": {
     "@sap/cds": "3.21.3",
-    "@sap/hana-client": "^2.4.182",
+    "@sap/cds-odata-v2-adapter-proxy": "^1.4.21",
     "@sap/cloud-sdk-core": "^1.17.2",
+    "@sap/hana-client": "^2.4.182",
     "@sap/xsenv": "^2.2.0",
     "@sap/xssec": "^2.2.5",
     "express": "^4.17.1",
@@ -29,8 +30,19 @@
           "db",
           "srv"
         ]
+      },
+      "controller-config": {
+        "kind": "rest",
+        "credentials": {
+          "requestTimeout": 10000,
+          "destination": "controller-config"
+        },
+        "pool": {
+          "min": 1,
+          "max": 10
+        }
       }
-    },  	
+    },
     "auth": {
       "passport": {
         "strategy": "JWT"

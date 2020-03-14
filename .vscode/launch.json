@@ -18,6 +18,20 @@
       "internalConsoleOptions": "openOnSessionStart",
       "console": "internalConsole",
       "autoAttachChildProcesses": true
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "srv/server",
+      "env": {
+        "XS_APP_LOG_LEVEL":"DEBUG",
+        "DEBUG":"X",
+      },
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/srv/server",
+      "cwd": "${workspaceFolder}/srv"
     }
   ]
 }
