@@ -24,6 +24,7 @@
       "request": "launch",
       "name": "srv/server",
       "env": {
+        "NODE_EXTRA_CA_CERTS":"~/Downloads/mkcert.pem",
         "XS_APP_LOG_LEVEL":"DEBUG",
         "DEBUG":"X",
       },

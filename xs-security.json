@@ -1,0 +1,22 @@
+{
+    "xsappname": "controller-api-cap",
+    "tenant-mode": "dedicated",
+    "foreign-scope-references":["$ACCEPT_GRANTED_SCOPES"],
+    "scopes": [
+      { 
+        "name": "xs_user.read",
+        "description": "read user data"
+      }
+    ],
+    "attributes": [],
+    "role-templates": [
+      {
+        "name": "readuser",
+        "description": "generated",
+        "scope-references": [
+          "xs_user.read"
+        ],
+        "attribute-references": []
+      }
+    ]
+}

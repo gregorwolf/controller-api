@@ -63,7 +63,7 @@ modules:
      - name: hdi_db
 
 resources:
-  - name: controller-api-ex-uaa
+  - name: controller-api-cap-uaa
     type: org.cloudfoundry.existing-service
   - name: controller-config
     properties:

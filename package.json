@@ -8,7 +8,7 @@
     "node": ">=8.0.0"
   },
   "dependencies": {
-    "@sap/cds": "3.21.3",
+    "@sap/cds": "3.31.2",
     "@sap/cds-odata-v2-adapter-proxy": "^1.4.21",
     "@sap/cloud-sdk-core": "^1.17.2",
     "libnpx": "^10.2.2",
@@ -19,6 +19,10 @@
     "build": "cds build/all --clean",
     "build:local": "npm run build && cp gen/srv/srv/csn.json srv/srv/",
     "build:xsa": "mbt build -p=xsa",
+    "create-service:xsuaa": "xs create-service xsuaa default controller-api-cap-uaa -c xs-security.json",
+    "update-service:xsuaa": "xs update-service controller-api-cap-uaa -c xs-security.json",
+    "xsuaa:create:key": "xs create-service-key controller-api-cap-uaa controller-api-cap-uaa-key",
+    "xsuaa:get:key": "xs service-key controller-api-cap-uaa controller-api-cap-uaa-key",
     "deploy:xsa": "xs deploy mta_archives/controller-api-cap_1.0.0.mtar",
     "start": "node server"
   },
