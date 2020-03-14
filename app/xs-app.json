@@ -3,6 +3,13 @@
 	"authenticationMethod": "route",
 	"routes": [
 		{
+			"source": "^/api/(.*)",
+			"target": "/api/$1",
+			"destination": "cap-backend",
+			"csrfProtection": true,
+			"authenticationType": "xsuaa"
+		},
+		{
 			"source": "^/controller/(.*)",
 			"target": "/controller/$1",
 			"destination": "cap-backend",
