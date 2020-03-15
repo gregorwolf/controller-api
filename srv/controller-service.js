@@ -36,8 +36,12 @@ module.exports = cds.service.impl (srv => {
       }
       */
 
-     const destinationNameAndJwt = { destinationName: 'controller-config', jwt: req.attr.token};
-     const httpRequest = {
+      // This is based on:
+      // New Versions of SAP Cloud SDK: 2.19.1 for Java, 1.6.1 for JavaScript, and v22 of Continuous Delivery Toolkit
+      // https://blogs.sap.com/2019/07/18/new-versions-of-sap-cloud-sdk-2.19.1-for-java-1.6.1-for-javascript-and-v22-of-continuous-delivery-toolkit/
+
+      const destinationNameAndJwt = { destinationName: 'controller-config', jwt: req.attr.token};
+      const httpRequest = {
         method: HttpMethod.GET,
         url: "/v2/users"
       };
