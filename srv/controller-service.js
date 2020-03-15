@@ -15,9 +15,13 @@ module.exports = cds.service.impl (srv => {
       const tx = controllerAPI.transaction(req)
       // try to query the users
       response = await tx.get('/v2/users')
-      response.users.forEach(function(item){
-        users.push({username: item.userEntity.username})
-      })
+      if(response && response.users) {
+        response.users.forEach(function(item){
+          if(item.userEntity.username) {
+            users.push({username: item.userEntity.username})
+          }
+        })
+      }
     } catch (error) {
       console.log("error.stack: " + error.stack)
       req.error(401, "message: " + error.message + " stack: " + error.stack)
