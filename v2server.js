@@ -11,11 +11,16 @@ const port = process.env.PORT || 4004;
 (async () => {
   const app = express();
 
+  app.use("/", express.static("app/resources/"))
+
+  app.get("/", function(req, res) {
+    res.redirect("/index.html")
+  });
   // serve odata v4
   await cds
     .serve('ControllerService')
     .from(csn)
-    .with('./srv/controller-service.js')
+    .with('./srv/controller-service')
     .in(app);
 
   // serve odata v2

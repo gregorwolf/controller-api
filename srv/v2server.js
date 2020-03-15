@@ -3,6 +3,7 @@
 const express = require("express");
 const cds = require("@sap/cds");
 const proxy = require("@sap/cds-odata-v2-adapter-proxy");
+const csn = 'srv/csn.json';
 
 // For authentication test
 const passport = require("passport")
@@ -35,9 +36,9 @@ const port = process.env.PORT || 4004;
   })
   // serve odata v4
   await cds
-    .connect("db") // ensure database is connected!
-    .serve("all")
-    .with('controller-service.js')
+    .serve('ControllerService')
+    .from(csn)
+    .with('controller-service')
     .in(app);
 
   // serve odata v2

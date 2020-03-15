@@ -24,7 +24,7 @@
     "xsuaa:create:key": "xs create-service-key controller-api-cap-uaa controller-api-cap-uaa-key",
     "xsuaa:get:key": "xs service-key controller-api-cap-uaa controller-api-cap-uaa-key",
     "deploy:xsa": "xs deploy mta_archives/controller-api-cap_1.0.0.mtar",
-    "start": "node server"
+    "start": "node v2server"
   },
   "cds": {
     "requires": {
