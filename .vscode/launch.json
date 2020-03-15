@@ -24,14 +24,15 @@
       "request": "launch",
       "name": "srv/server",
       "env": {
-        "NODE_EXTRA_CA_CERTS":"~/Downloads/mkcert.pem",
+        "NODE_EXTRA_CA_CERTS":"/Users/gwolf/Downloads/paprh-sap67-pap-local-zertifikatskette.pem",
+        "NODE_TLS_REJECT_UNAUTHORIZED":"0",
         "XS_APP_LOG_LEVEL":"DEBUG",
         "DEBUG":"X",
       },
       "skipFiles": [
         "<node_internals>/**"
       ],
-      "program": "${workspaceFolder}/srv/server",
+      "program": "${workspaceFolder}/srv/v2server",
       "cwd": "${workspaceFolder}/srv"
     }
   ]
