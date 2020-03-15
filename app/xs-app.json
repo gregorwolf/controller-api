@@ -14,6 +14,13 @@
 			"authenticationType": "xsuaa"
 		},
 		{
+			"source": "^/v2/controller/(.*)",
+			"target": "/v2/controller/$1",
+			"destination": "cap-backend",
+			"csrfProtection": true,
+			"authenticationType": "xsuaa"
+		},
+		{
 			"source": "^/controller/(.*)",
 			"target": "/controller/$1",
 			"destination": "cap-backend",
